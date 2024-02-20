@@ -230,48 +230,25 @@ const SearchResultSearchForm = () => {
                 <div className="two-search-inputs-container">
                     <div className="search_forms_from_where_input_fld_container each_flex-side">
                         <div className="search_page_input" style={{padding: 16, display: "flex", alignItems: "center", borderRadius: 8, marginBottom: 5, background: "rgba(0,0,0,0.07)"}}>
-                            <div id="hotel_forms_main_class_guests_cabin_settings_pane" className="forms_class_guests_cabin_settings_pane"  style={{borderRadius: 8, maxWidth: 600}}>
-                                <p onClick={()=>document.getElementById("hotel_forms_main_class_guests_cabin_settings_pane").style.display = "none"} className="airports_auto_complete_close_btn">&times;</p>
+                            <div id="test_hotel_forms_main_class_guests_cabin_settings_pane" className="forms_class_guests_cabin_settings_pane"  style={{borderRadius: 8, maxWidth: 600}}>
+                                <p onClick={()=>document.getElementById("test_hotel_forms_main_class_guests_cabin_settings_pane").style.display = "none"} className="airports_auto_complete_close_btn">&times;</p>
                                 <div style={{padding: 15}}>
                                     <p style={{color: "rgba(0,0,0,0.7)", fontFamily: "'Prompt', sans-serif", fontWeight: "bolder", fontSize: 17, marginTop: 10, marginBottom: 20}}>
-                                        Add Rooms and Guests</p>
-                                    <p style={{fontFamily: "'Prompt', Sans-serif", fontSize: 13, paddingBottom: 20, color: "green"}}>
-                                        {returnHotelSearchTotalGuests().guests}
-                                        {(returnHotelSearchTotalGuests().guests>1) ? " Guests, " : " Guest, "}
-                                        {returnHotelSearchTotalGuests().rooms}
-                                        {(returnHotelSearchTotalGuests().rooms>1) ? " Rooms" : " Room"}
-                                    </p>
-                                    {HOTEL_SEARCH_FORM_ROOMS_MARKUP.map(each=>each)}
-                                    <p onClick={addRoomToHotelSearch} style={{fontFamily: "'Prompt', Sans-serif", fontSize: 14, textAlign: "right", padding: "10px 0", cursor: "pointer", color: "rgb(23, 87, 148)", fontWeight: "bolder"}}>
-                                        <i style={{color: "green", marginRight: 10}} className="fa-solid fa-plus"></i>
-                                        Add room</p>
+                                        Test Title</p>
                                 </div>
-                                <div onClick={()=>document.getElementById("hotel_forms_main_class_guests_cabin_settings_pane").style.display = "none"} style={{cursor: "pointer", padding: 10, margin: 10, marginTop: 0, backgroundColor: "rgb(23, 87, 148)", color: "white", textAlign: "center", borderRadius: 50, textAlign: "center"}}>
-                                        Done
-                                    </div>
+                                <div onClick={()=>document.getElementById("test_hotel_forms_main_class_guests_cabin_settings_pane").style.display = "none"} style={{cursor: "pointer", padding: 10, margin: 10, marginTop: 0, backgroundColor: "rgb(23, 87, 148)", color: "white", textAlign: "center", borderRadius: 50, textAlign: "center"}}>
+                                    Done
+                                </div>
                             </div>
-                            <div onClick={()=>document.getElementById("hotel_forms_main_class_guests_cabin_settings_pane").style.display="block"} style={{display: "flex", cursor: "pointer", marginRight: 20}}>
+                            <div onClick={()=>document.getElementById("test_hotel_forms_main_class_guests_cabin_settings_pane").style.display="block"} style={{display: "flex", cursor: "pointer", marginRight: 20}}>
                                 <div style={{marginRight: 10}}>
                                     <i style={{color: "rgb(23, 87, 148)", fontSize: 20}} className="fa-solid fa-user"></i>
                                 </div>
                                 <div>
                                     <p style={{color: "rgba(0,0,0,0.8)", fontFamily: "'Prompt', Sans-serif", fontSize: 12}}>
-                                        {returnHotelSearchTotalGuests().guests}
-                                        {(returnHotelSearchTotalGuests().guests>1) ? " Guests" : " Guest"}
+                                        Discount Codes
                                     </p>
                                 </div>
-                            </div>
-                            <div style={{display: "flex", flexDirection: "row"}}>
-                                <input 
-                                    checked={hotel_search_data.flights.included}
-                                    id="hotel_search_form_add_flight_toggle" 
-                                    className="cm-toggle hotel_search_form_toggle" 
-                                    onChange={toggleIncludeFlightsInHotelSearch} style={{marginRight: 10}} type="checkbox" />
-                                <label htmlFor="hotel_search_form_add_flight_toggle">
-                                    <p style={{color: "rgba(0,0,0,0.8)", fontFamily: "'Prompt', Sans-serif", fontSize: 12}}>
-                                        Add Flight    
-                                    </p>
-                                </label>
                             </div>
                             <div style={{display: "flex", flexDirection: "row", marginLeft: 20}}>
                                 <input 
@@ -283,64 +260,31 @@ const SearchResultSearchForm = () => {
                                 />
                                 <label htmlFor="hotel_search_form_add_car_toggle">
                                     <p style={{color: "rgba(0,0,0,0.8)", fontFamily: "'Prompt', Sans-serif", fontSize: 12}}>
-                                        Add Car    
+                                        Show AARP Rates
                                     </p>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div className="search_forms_to_where_input_fld_container each_flex-side">
-                        {
-                            (!hotel_search_data.flights.included) && <div style={{borderRadius: 8, position: "absolute", height: "calc(100% - 5px)", width: "100%", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center"}}>
-                            </div>
-                        }
-                        <div id="hotel_from_where_city_auto_complete_input" className="airports_inputs_with_auto_complete hotel_sp_search_airports_inputs_auto_complete" style={{borderRadius: 30}}>
-                            <p onClick={()=>document.getElementById("hotel_from_where_city_auto_complete_input").style.display = "none"} className="airports_auto_complete_close_btn">&times;</p>
-                            <input autoComplete="off" id="hotel_from_where_city_auto_complete_input_fld" 
-                                onBlur={()=>{
-                                    setTimeout(()=>document.getElementById("hotel_from_where_city_auto_complete_input").style.display = "none",
-                                        200);
-                                }} className="airports_auto_complete_input" type="text" placeholder="Where are you leaving from?"/>
-                            <div className="airports_auto_complete_list_container">
-                                <ul id="hotels_auto_complete_from_where_input_list">
-                                    <li><div style={{padding: 10, display: "flex", flexDirection: "row", cursor: "pointer"}}>
-                                        <div style={{height: 35, marginRight: 15, display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                                            <i className="fa fa-history" style={{color: "rgba(0,0,0,0.3)", fontSize: 22}}></i>
-                                        </div>
-                                        <div>
-                                            <div>
-                                                <p style={{fontSize: 14, fontWeight: "bolder", color: "rgba(0,0,0,0.8)"}}>
-                                                    New York (LGA - Laguardia)
-                                                </p>
-                                                <p style={{fontSize: 14, color: "rgba(0,0,0,0.8)"}}>
-                                                    United States
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="main-search_txt_input search_page_input" style={{border: "none", 
-                            backgroundColor: (!hotel_search_data.flights.included) ? "rgba(0,255,0,0.2)" : "rgba(0,0,0,0.07)", borderRadius: 8}}>
-                            <i style={{fontSize: 20, marginRight: 5}} 
-                                className={(!hotel_search_data.flights.included) ? "fa-solid fa-info-circle" : "fa fa-map-marker"}></i>
-                            <input id="hotel_search_forms_from_where_input_fld" onClick={open_hotels_from_where_auto_complete_pane} type="text" readOnly autoComplete="off" 
-                            placeholder="Where are you leaving from?" value={(!hotel_search_data.flights.included) ? "Flight not included..." : ""} />
+                    <div style={{position: "relative"}} className="search_forms_to_where_input_fld_container each_flex-side">
+                        <div className="main-search_txt_input search_page_input" style={{border: "none", position: "relative", backgroundColor: "rgba(0,0,0,0.07)", borderRadius: 8, marginBottom: 5}}>
+                            <i style={{fontSize: 20, marginRight: 5}} className="fa-solid fa-calendar-days"></i>
+                            <input id="test_checkin_checkout_dates_input" type="text" readOnly="true" 
+                                placeholder="Dates"/>
                         </div>
                     </div>
                 </div>
                 <div className="two-search-inputs-container">
                     <div className="search_forms_from_where_input_fld_container each_flex-side">
-                        <div id="hotel_to_where_city_auto_complete_input" className="airports_inputs_with_auto_complete hotel_sp_search_airports_inputs_auto_complete" style={{borderRadius: 30}}>
-                            <p onClick={()=>document.getElementById("hotel_to_where_city_auto_complete_input").style.display = "none"} className="airports_auto_complete_close_btn">&times;</p>
-                            <input autoComplete="off" id="hotel_to_where_city_auto_complete_input_fld" 
+                        <div id="rental_car_pickup_auto_complete_input" className="airports_inputs_with_auto_complete" style={{borderRadius: 30}}>
+                            <p onClick={()=>document.getElementById("rental_car_pickup_auto_complete_input").style.display = "none"} className="airports_auto_complete_close_btn">&times;</p>
+                            <input autoComplete="off" id="rental_car_pickup_auto_complete_input_fld" 
                                 onBlur={()=>{
-                                    setTimeout(()=>document.getElementById("hotel_to_where_city_auto_complete_input").style.display = "none",
+                                    setTimeout(()=>document.getElementById("rental_car_pickup_auto_complete_input").style.display = "none",
                                         200);
-                                }} className="airports_auto_complete_input" type="text" placeholder="Where are you traveling to?"/>
+                                }} className="airports_auto_complete_input" type="text" placeholder="Pick Up?"/>
                             <div className="airports_auto_complete_list_container">
-                                <ul id="hotels_auto_complete_to_where_input_list">
+                                <ul id="rental_car_pickup_auto_complete_pickup_location_input_list">
                                     <li><div style={{padding: 10, display: "flex", flexDirection: "row", cursor: "pointer"}}>
                                         <div style={{height: 35, marginRight: 15, display: "flex", flexDirection: "column", justifyContent: "center"}}>
                                             <i className="fa fa-history" style={{color: "rgba(0,0,0,0.3)", fontSize: 22}}></i>
@@ -361,15 +305,44 @@ const SearchResultSearchForm = () => {
                         </div>
                         <div className="main-search_txt_input search_page_input" style={{border: "none", backgroundColor: "rgba(0,0,0,0.07)", borderRadius: 8}}>
                             <i style={{fontSize: 20, marginRight: 5}} className="fa fa-map-marker"></i>
-                            <input id="hotel_search_forms_to_where_input_fld" onClick={open_hotels_to_where_auto_complete_pane} type="text" readOnly autoComplete="off" 
-                            placeholder="Where are you traveling to?" />
+                            <input id="rental_car_search_forms_pickup_input_fld" onClick={open_cars_pickup_auto_complete_pane} type="text" readOnly autoComplete="off" 
+                            placeholder="Pick Up?" />
                         </div>
                     </div>
                     <div style={{position: "relative", display: "flex"}} className="search_forms_to_where_input_fld_container each_flex-side">
-                        <div className="main-search_txt_input search_page_input" style={{border: "none", position: "relative", backgroundColor: "rgba(0,0,0,0.07)", borderRadius: 8, marginBottom: 5}}>
-                            <i style={{fontSize: 20, marginRight: 5}} className="fa-solid fa-calendar-days"></i>
-                            <input id="checkin_checkout_dates_input" type="text" readOnly="true" 
-                                placeholder="checkin - checkout dates"/>
+                        <div id="rental_car_drop_off_auto_complete_input" className="airports_inputs_with_auto_complete" style={{borderRadius: 30}}>
+                            <p onClick={()=>document.getElementById("rental_car_drop_off_auto_complete_input").style.display = "none"} className="airports_auto_complete_close_btn">&times;</p>
+                            <input autoComplete="off" id="rental_car_drop_off_auto_complete_input_fld" 
+                                onBlur={()=>{
+                                    setTimeout(()=>document.getElementById("rental_car_drop_off_auto_complete_input").style.display = "none",
+                                        200);
+                                }} className="airports_auto_complete_input" type="text" placeholder="Drop Off?"/>
+                            <div className="airports_auto_complete_list_container">
+                                <ul id="rental_car_drop_off_auto_complete_from_where_input_list">
+                                    <li><div style={{padding: 10, display: "flex", flexDirection: "row", cursor: "pointer"}}>
+                                        <div style={{height: 35, marginRight: 15, display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                                            <i className="fa fa-history" style={{color: "rgba(0,0,0,0.3)", fontSize: 22}}></i>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <p style={{fontSize: 14, fontWeight: "bolder", color: "rgba(0,0,0,0.8)"}}>
+                                                    New York (LGA - Laguardia)
+                                                </p>
+                                                <p style={{fontSize: 14, color: "rgba(0,0,0,0.8)"}}>
+                                                    United States
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="main-search_txt_input search_page_input" style={{border: "none", 
+                            backgroundColor: "rgba(0,0,0,0.07)", borderRadius: 8}}>
+                            <i style={{fontSize: 20, marginRight: 5}} 
+                                className="fa fa-map-marker"></i>
+                            <input id="rental_car_search_forms_drop_off_input_fld" onClick={open_cars_drop_off_auto_complete_pane} type="text" readOnly autoComplete="off" 
+                                placeholder="Drop Off?" value="" />
                         </div>
                         <div>
                             <div onClick={hotelSearchOnSubmit} id="home_search_form_submit_btn" className="searchBtn" 
@@ -384,13 +357,14 @@ const SearchResultSearchForm = () => {
     )
 }
 
-function open_hotels_to_where_auto_complete_pane(){
-    document.getElementById("hotel_to_where_city_auto_complete_input").style.display = "block";
-    document.getElementById("hotel_to_where_city_auto_complete_input_fld").focus();
+function open_cars_drop_off_auto_complete_pane(){
+    document.getElementById("rental_car_drop_off_auto_complete_input").style.display = "block";
+    document.getElementById("rental_car_drop_off_auto_complete_input_fld").focus();
 }
-function open_hotels_from_where_auto_complete_pane(){
-    document.getElementById("hotel_from_where_city_auto_complete_input").style.display = "block";
-    document.getElementById("hotel_from_where_city_auto_complete_input_fld").focus();
+
+function open_cars_pickup_auto_complete_pane(){
+    document.getElementById("rental_car_pickup_auto_complete_input").style.display = "block";
+    document.getElementById("rental_car_pickup_auto_complete_input_fld").focus();
 }
 
 export default SearchResultSearchForm;
