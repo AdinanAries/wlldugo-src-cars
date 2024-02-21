@@ -1,8 +1,8 @@
 import SearchFiltersLoader from "../../Pages/SearchPage/Components/SearchFiltersLoader";
 import Ads from "../../Pages/SearchPage/Components/Ads";
 import FlightLoaderCard from "../../Pages/SearchPage/Components/FlightLoaderCard";
-//import StayOfferItem from "./StayOfferItem";
-//import SearchFilters from "./SearchFilters";
+import EachRentalCarOfferItem from "./EachRentalCarOfferItem";
+import SearchFilters from "./SearchFilters";
 
 const ResultsListContainer = (props) => {
 
@@ -14,7 +14,7 @@ const ResultsListContainer = (props) => {
         <div style={{marginTop: 10, minHeight: "calc(100vh - 300px)", padding: 0}}>
             <div className="search_list_main_flex_container">
                 <div id="search_list_main__settings_section" className="search_list_main__settings_section">
-                    {/*!props.loading && <SearchFilters />*/}
+                    {!props.loading && <SearchFilters />}
                     {props.loading && <SearchFiltersLoader />}
                 </div>
                 <div className="search_list_main_tickets_section hotel_search_results_main_items_container">
@@ -163,17 +163,14 @@ const ResultsListContainer = (props) => {
                                 300</span> items...</p>
                     </div>}
                     <div id="search_results_list_items">
-                        <p>Car Search Results</p>
-                        {/*
+                        {
                             !props.loading && <>
-                                <StayOfferItem 
-                                    selectHotelOffer={selectHotelOffer} 
+                                <EachRentalCarOfferItem 
                                 />
-                                <StayOfferItem 
-                                    selectHotelOffer={selectHotelOffer} 
+                                <EachRentalCarOfferItem 
                                 />
                             </>
-                            */}
+                        }
                         { props.loading ? <FlightLoaderCard /> : "" }
                         { props.loading ? <FlightLoaderCard /> : "" }
                         { props.loading ? <FlightLoaderCard /> : "" }

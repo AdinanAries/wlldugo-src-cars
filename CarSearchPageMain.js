@@ -1,10 +1,16 @@
 import ResultsListContainer from "./Components/ResultsListContainer";
 import SearchResultSearchForm from "./Components/SearchResultSearchForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CarSearchPageMain = (props) => {
 
     let [ loading, setLoading ] = useState(true);
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setLoading(false);
+        },15000)
+    }, [])
 
     const submitFromSearchPage = async () => {
         window.location.reload();
