@@ -23,7 +23,7 @@ const SelectedCarFullInfo = (props) => {
 
     return <div className="checkout_page_all_info_flex_container hotel_checkout_page_container">
         <div className="checkout_page_all_info_flex_left">
-            <div style={{display: "flex", boxShadow: "0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15)"}} className="selected_hotel_full_details_images_section">
+            <div style={{display: "flex"}} className="selected_hotel_full_details_images_section">
                 <div style={{marginBottom: 0, position: "relative"}}>
                     <div style={{position: "absolute", width: 35, height: 35, borderRadius: 4, right: 5, top: 25, zIndex: 3, backgroundColor: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center"}}>
                         <i style={{color: "white"}} className="fa-regular fa-heart"></i>
