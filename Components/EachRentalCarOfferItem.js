@@ -1,9 +1,14 @@
 import CarImg from "../../Mazda_Suv.png";
 
 const EachRentalCarOfferItem = (props) => {
+
+    const { 
+        selectOfferCar 
+    } = props;
+
     return (
         <div>
-            <div style={{position: "relative", cursor: "pointer"}}>
+            <div onClick={selectOfferCar} style={{position: "relative", cursor: "pointer"}}>
                 <div className="stay_offer_card_inner_containter" style={{overflow: "hidden", display: "flex", borderBottom: "1px solid rgba(0,0,0,0.1)", width: "100%"}}>
                     <div className="direct-flex-child hotel-offer-card-img-container" style={{width: "250px", position: "relative"}}>
                         <div style={{position: "absolute", width: 35, height: 35, borderRadius: 4, right: 5, top: 25, zIndex: 3, backgroundColor: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center"}}>
@@ -13,7 +18,7 @@ const EachRentalCarOfferItem = (props) => {
                                 style={{width: "100%", height: "100%", objectFit: "contain", objectPosition: "center"}} 
                                 alt="" />
                     </div>
-                    <div onClick={()=>alert("here")} className="direct-flex-child hotel-offer-card-info-container" 
+                    <div className="direct-flex-child hotel-offer-card-info-container" 
                         style={{width: "calc(100% - 250px)", display: "flex", justifyContent: "space-between", padding: "10px 20px", position: "relative"}}>
                         <div style={{/*display: "flex", flexDirection: "column", justifyContent: "space-between",*/ height: "100%"}}>
                             <div>

@@ -7,7 +7,7 @@ import SearchFilters from "./SearchFilters";
 const ResultsListContainer = (props) => {
 
     const {
-        /*selectHotelOffer*/
+        selectOfferCar
     } = props;
 
     return (
@@ -166,8 +166,10 @@ const ResultsListContainer = (props) => {
                         {
                             !props.loading && <>
                                 <EachRentalCarOfferItem 
+                                    selectOfferCar={selectOfferCar}
                                 />
                                 <EachRentalCarOfferItem 
+                                    selectOfferCar={selectOfferCar}
                                 />
                             </>
                         }
