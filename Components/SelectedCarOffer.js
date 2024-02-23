@@ -113,7 +113,7 @@ const SelectedCarOffer = (props) => {
                         /> : ""
                 }
                 {
-                    (activePage===CONSTANTS.checkout_pages.hotel.guests) ?
+                    (activePage===CONSTANTS.checkout_pages.rental_car.driver_forms) ?
                         <RentalCarDriverDetails
                             showDriverFormsPage={showDriverFormsPage}
                             showPaymentPage={showPaymentPage}
